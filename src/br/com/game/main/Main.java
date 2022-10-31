@@ -1,8 +1,24 @@
+/*::============================================================::
+  :: Instituição   : Senac - SP                                 ::
+  :: Desenvolvedor : Lucas Boni dos Santos                      ::
+  :: Data:         : 31/10/2022                                 ::
+  :: Projeto       : Jogo da aula de P.I                        ::
+  ::============================================================::
+  :: Desenvolvedor :                                            ::
+  :: Data          :                             Versão Java:   ::
+  :: Alteração     :                                            ::
+  ::============================================================::
+  :: Desenvolvedor : Lucas Boni dos Santos                      ::
+  :: Data          : 31/10/2022                  Versão Java: 1 ::
+  :: Alteração     : Primeira versão                            ::
+  ::============================================================::*/
+
 package br.com.game.main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
+
 public class Main {
 
     //TODO Criar as variáveis globais dos Time Sleep
