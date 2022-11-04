@@ -8,6 +8,10 @@
   :: Data          :                             Versão Java:   ::
   :: Alteração     :                                            ::
   ::============================================================::
+  :: Desenvolvedor : Ryan Morais Do Nascimento                  ::
+  :: Data          : 03/11/2022                  Versão Java: 2 ::
+  :: Alteração     : Criei o menu de dificuldade e a validação  ::
+  ::============================================================::
   :: Desenvolvedor : Lucas Boni dos Santos                      ::
   :: Data          : 31/10/2022                  Versão Java: 1 ::
   :: Alteração     : Primeira versão                            ::
