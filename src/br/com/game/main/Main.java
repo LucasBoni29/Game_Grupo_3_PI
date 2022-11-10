@@ -63,6 +63,44 @@ public class Main {
         }
     }
 
+    //Escolhe o nivel de dificuldade
+    public static int dificuldade(){
+        Scanner input = new Scanner(System.in);
+        List<String> dificuldades = new ArrayList<>();
+
+        dificuldades.add("Fácil");
+        dificuldades.add("Normal");
+        dificuldades.add("Difícil");
+
+        System.out.println("Qual nível deseja jogar?\n" +
+                "1 -> "+dificuldades.get(0)+"\n" +
+                "2 -> "+dificuldades.get(1)+"\n" +
+                "3 -> "+dificuldades.get(2)+"\n" +
+                "Escolha uma das opções");
+        int nivel = input.nextInt();
+        return nivel;
+    }
+
+    //Valida se a escolha foi válida
+    public static void  validarDificuldade(int nivel) throws InterruptedException {
+        switch (nivel){
+            case 1:
+                p1Intro();
+                break;
+            case 2:
+                p1Intro();
+                break;
+            case 3:
+                p1Intro();
+                break;
+            default:
+                System.err.print("Valor inválido. Tente novamente");
+                dificuldade();
+                break;
+        }
+
+    }
+
     public static String novoJogo(){
         Scanner ler = new Scanner(System.in);
         String explicacao = "Nesta jornada você será resposável por controlar uma empresa herdada. Está preparado?\n" +
