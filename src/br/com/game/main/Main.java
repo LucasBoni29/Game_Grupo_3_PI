@@ -32,8 +32,8 @@ import java.util.Scanner;
 import java.util.List;
 
 public class Main {
-    //     * @param texto Colunas a serem desativadas {@link menu}
-    //     * @author wilian.queiroz
+    //     * @param texto Colunas a serem desativadas {@link Main}
+    //     * @author Lucas Boni
     //TODO Criar função da barra de vida, função pra remover vida.
     //TODO criar variáveis globais para os Thread.sleep.
 
@@ -41,18 +41,23 @@ public class Main {
     /* Variáveis Globais */
     /* ==================*/
 
+    /**
+     * VARIÁVEL PARA ARMAZENAR VIDA E DINHEIRO DO JOGADOR
+     * ÍNDICE 0 = VIDA
+     * ÍNDICE 1 = DINHEIRO
+     */
     static int[] vidaDinheiro = {100, 20000};
     static int tempoDasFalas = 0;
 
     /**
-     * VARIÁVEL USADA PARA VERIFICAÇÃO
+     * VARIÁVEL USADA PARA VERIFICAÇÃO DO QUE FAZER COM A VIDA
      * 0 = NADA
      * 1 = ACRESCENTAR VIDA
      * 2 = DIMINUIR VIDA
      */
     static float statusVida = 0;
     /**
-     * VARIÁVEL USADA PARA VERIFICAÇÃO
+     * VARIÁVEL USADA PARA VERIFICAÇÃO DO QUE FAZER COM O DINHEIRO
      * 0 = NADA
      * 1 = ACRESCENTAR DINHEIRO
      * 2 = DIMINUIR DINHEIRO
@@ -81,6 +86,11 @@ public class Main {
         String opcao = ler.next();
         validaOpcaoMenu(opcao);
     }
+
+    /**
+     * MÉTODO USADO PARA VALIDAR A OPÇÃO ESCOLHIDA DO MENU.
+     * @author Lucas Boni.
+     */
     public static void validaOpcaoMenu(String opcao){
         switch (opcao){
             case "1":
@@ -95,6 +105,11 @@ public class Main {
         }
     }
 
+    /**
+     * MÉTODO USADO PARA MOSTRAR O STATUS DO JOGADOR.
+     * @author Lucas Boni
+     * @author Gustavo Xavier.
+     */
     public static void mostrarStatus(){
         try {
             System.out.println("==================\n" +
@@ -112,6 +127,12 @@ public class Main {
         }
     }
 
+    /**
+     * MÉTODO USADO PARA CALCULAR O STATUS DO JOGADOR.
+     * @param status PASSANDO VIDA E DINHEIRO
+     * @author Lucas Boni
+     * @author Gustavo Xavier.
+     */
     public static int[] calcularStatus(int[] status){
         Random dano =  new Random();
         try {
@@ -149,6 +170,12 @@ public class Main {
         return status;
     }
 
+    /**
+     * MÉTODO USADO VALIDAR SE A ESTOUROU OU NÃO.
+     * @param status PASSANDO VIDA E DINHEIRO
+     * @author Lucas Boni
+     * @author Gustavo Xavier
+     */
     public static int[] validaLimiteVida(int[] status){
         if (status[0] > 100){
             status[0] = 100;
@@ -157,6 +184,12 @@ public class Main {
         return status;
     }
 
+    /**
+     * MÉTODO USADO PARA VALIDAR O GAME OVER.
+     * @param status PASSANDO VIDA E DINHEIRO
+     * @author Lucas Boni
+     * @author Gustavo Xavier.
+     */
     public static void validaGameOver(int[] status){
             try {
                 if (status[0] <= 0){
@@ -175,7 +208,10 @@ public class Main {
             }
     }
 
-    //Escolhe o nivel de dificuldade
+    /**
+     * MENU DOS NÍVEIS DE DIFICULDADE
+     * @author Ryan Nascimento
+     */
     public static int dificuldade(){
         Scanner input = new Scanner(System.in);
         List<String> dificuldades = new ArrayList<>();
@@ -193,8 +229,12 @@ public class Main {
         return nivel;
     }
 
-    //Valida se a escolha foi válida
-    public static void validarDificuldade(int nivel) throws InterruptedException {
+    /**
+     * MÉTODO USADO PARA VERIFICAR O NÍVEL DE DIFICULDADE ESCOLHIDO.
+     * @param nivel 1 = FÁCIL, 2 = NORMAL, 3 = DIFÍCIL
+     * @author Ryan Nascimento
+     */
+    public static void validarDificuldade(int nivel){
         switch (nivel){
             case 1:
                 p1Intro();
@@ -212,6 +252,10 @@ public class Main {
         }
     }
 
+    /**
+     * MÉTODO USADO PARA VERIFICAR SE QUER INICIAR O JOGO OU NÃO.
+     * @author Lucas Boni
+     */
     public static void novoJogo(){
         Scanner ler = new Scanner(System.in);
         String opcao = "Nesta jornada você será resposável por controlar uma empresa herdada. Está preparado?\n" +
@@ -220,6 +264,13 @@ public class Main {
         opcao = ler.next();
         validaNovoJogo(opcao.toLowerCase());
     }
+
+    /**
+     * MÉTODO USADO PARA VALIDAR A FUNÇÃO DO NOVO JOGO.
+     * @Método novoJogo
+     * @Class {@link Main}
+     * @author Lucas Boni
+     */
     public static void validaNovoJogo(String opcao){
         if (opcao.equals("sim")){
             System.out.println("......");
@@ -228,10 +279,22 @@ public class Main {
             menu();
         }
     }
+
+    /**
+     * MÉTODO USADO PARA SAIR DO JOGO.
+     * @Class {@link Main}
+     * @author Lucas Boni
+     */
     public static void sair(){
         System.out.println("Espero que volte :´)");
         return;
     }
+
+    /**
+     * MÉTODO USADO PARA IMPRIMIR A INTRO DO JOGO.
+     * @Class {@link Main}
+     * @author Gustavo Xavier.
+     */
     public static void txtIntro(){
         try {
             Thread.sleep(tempoDasFalas);
@@ -357,6 +420,12 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * MÉTODO USADO PARA IMPRIMIR O CAPÍTULO 1 DO JOGO.
+     * @Class {@link Main}
+     * @author Gustavo Xavier.
+     */
     public static void capitulo01(){
         try{
             Thread.sleep(tempoDasFalas);
@@ -390,6 +459,12 @@ public class Main {
         }
         p2Intro();
     }
+
+    /**
+     * MÉTODO USADO PARA IMPRIMIR A PRIMEIRA PERGUNTA DA INTRO DO JOGO.
+     * @Class {@link Main}
+     * @author Gustavo Xavier.
+     */
     public static void p1Intro(){
         Scanner input = new Scanner(System.in);
         try {
@@ -425,6 +500,12 @@ public class Main {
             throw new RuntimeException("Erro na execução de um sleep.", e);
         }
     }
+
+    /**
+     * MÉTODO USADO PARA VALIDAR A RESPOSTA DA PRIMEIRA PERGUNTA DA INTRO DO JOGO.
+     * @Class {@link Main}
+     * @author Gustavo Xavier.
+     */
     public static void validaP1Intro(String rP1) {
         try{
             switch (rP1) {
@@ -510,6 +591,12 @@ public class Main {
             throw new RuntimeException("Erro na execução de um sleep.", e);
         }
     }
+
+    /**
+     * MÉTODO USADO PARA IMPRIMIR A SEGUNDA PERGUNTA DA INTRO DO JOGO.
+     * @Class {@link Main}
+     * @author Gustavo Xavier.
+     */
     public static void p2Intro(){
         Scanner input = new Scanner(System.in);
         try{
@@ -539,6 +626,12 @@ public class Main {
             throw new RuntimeException("Erro na execução de um sleep.", e);
         }
     }
+
+    /**
+     * MÉTODO USADO PARA VALIDAR A RESPOSTA DA SEGUNDA PERGUNTA DA INTRO DO JOGO.
+     * @Class {@link Main}
+     * @author Gustavo Xavier.
+     */
     public static void validaP2Intro(String rP2) {
         Scanner input = new Scanner(System.in);
         try{
@@ -576,6 +669,13 @@ public class Main {
             throw new RuntimeException("Erroa na execução de um sleep.", e);
         }
     }
+
+    /**
+     * MÉTODO MAIN DO PROJETO. ELE QUE IRÁ RODAR O JOGO.
+     * @param args RECEBE VALORES DA LINHA DE COMANDO
+     * @Class {@link Main}
+     * @author Lucas Boni
+     */
     public static void main(String[] args){
 //        menu();
 //        txtIntro();
