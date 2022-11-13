@@ -32,40 +32,56 @@ import java.util.Scanner;
 import java.util.List;
 
 public class Main {
-    //     * @param texto Colunas a serem desativadas {@link Main}
-    //     * @author Lucas Boni
-    //TODO Criar função da barra de vida, função pra remover vida.
-    //TODO criar variáveis globais para os Thread.sleep.
-
     /* ==================*/
     /* Variáveis Globais */
     /* ==================*/
 
     /**
      * VARIÁVEL PARA ARMAZENAR VIDA E DINHEIRO DO JOGADOR
-     * ÍNDICE 0 = VIDA
-     * ÍNDICE 1 = DINHEIRO
+     * @Índice 0 = VIDA
+     * @Índice 1 = DINHEIRO
+     * @Class {@link Main}
+     * @author Lucas Boni
+     * @author Gustavo Xavier
      */
     static int[] vidaDinheiro = {100, 20000};
+
+    /**
+     * VARIÁVEL PARA ARMAZENAR O TEMPO DAS FALAS
+     * @Class {@link Main}
+     * @author Lucas Boni
+     * @author Gustavo Xavier
+     */
     static int tempoDasFalas = 0;
 
     /**
-     * VARIÁVEL USADA PARA VERIFICAÇÃO DO QUE FAZER COM A VIDA
-     * 0 = NADA
-     * 1 = ACRESCENTAR VIDA
-     * 2 = DIMINUIR VIDA
+     * VARIÁVEL USADA PARA VERIFICAÇÃO DO QUE FAZER COM A VIDA DO JOGADOR.
+     * @Valor 0 = PADRÃO
+     * @Valor 1 = ACRESCENTAR VIDA
+     * @Valor 2 = DIMINUIR VIDA
+     * @Class {@link Main}
+     * @author Lucas Boni
+     * @author Gustavo Xavier
      */
     static float statusVida = 0;
     /**
      * VARIÁVEL USADA PARA VERIFICAÇÃO DO QUE FAZER COM O DINHEIRO
-     * 0 = NADA
-     * 1 = ACRESCENTAR DINHEIRO
-     * 2 = DIMINUIR DINHEIRO
+     * @Valor 0 = PADRÃO
+     * @Valor 1 = ACRESCENTAR DINHEIRO
+     * @Valor 2 = DIMINUIR DINHEIRO
+     * @Class {@link Main}
+     * @author Lucas Boni
+     * @author Gustavo Xavier
      */
     static float statusDinheiro = 0;
 
     /**
      * MÉTODO USADO PARA MOSTRAR O MENU DO JOGO.
+     * @Opção 1 = NOVO JOGO
+     * @Opção 2 = CONFIGURAÇÕES
+     * @Opção 3 = CRÉDITOS
+     * @Opção 4 = SAIR
+     * @Class {@link Main}
      * @author Lucas Boni.
      */
     public static void menu(){
@@ -89,6 +105,12 @@ public class Main {
 
     /**
      * MÉTODO USADO PARA VALIDAR A OPÇÃO ESCOLHIDA DO MENU.
+     * @Opção 1 = NOVO JOGO
+     * @Opção 2 = CONFIGURAÇÕES
+     * @Opção 3 = CRÉDITOS
+     * @Opção 4 = SAIR
+     * @Class {@link Main}
+     * @Opção 1
      * @author Lucas Boni.
      */
     public static void validaOpcaoMenu(String opcao){
@@ -107,6 +129,7 @@ public class Main {
 
     /**
      * MÉTODO USADO PARA MOSTRAR O STATUS DO JOGADOR.
+     * @Class {@link Main}
      * @author Lucas Boni
      * @author Gustavo Xavier.
      */
@@ -129,7 +152,8 @@ public class Main {
 
     /**
      * MÉTODO USADO PARA CALCULAR O STATUS DO JOGADOR.
-     * @param status PASSANDO VIDA E DINHEIRO
+     * @Class {@link Main}
+     * @param status VIDA E DINHEIRO
      * @author Lucas Boni
      * @author Gustavo Xavier.
      */
@@ -172,7 +196,8 @@ public class Main {
 
     /**
      * MÉTODO USADO VALIDAR SE A ESTOUROU OU NÃO.
-     * @param status PASSANDO VIDA E DINHEIRO
+     * @Class {@link Main}
+     * @param status VIDA E DINHEIRO
      * @author Lucas Boni
      * @author Gustavo Xavier
      */
@@ -186,7 +211,8 @@ public class Main {
 
     /**
      * MÉTODO USADO PARA VALIDAR O GAME OVER.
-     * @param status PASSANDO VIDA E DINHEIRO
+     * @Class {@link Main}
+     * @param status VIDA E DINHEIRO
      * @author Lucas Boni
      * @author Gustavo Xavier.
      */
@@ -210,6 +236,10 @@ public class Main {
 
     /**
      * MENU DOS NÍVEIS DE DIFICULDADE
+     * @Opção 1 = FÁCIL
+     * @Opção 2 = NORMAL
+     * @Opção 3 = DIFÍCIL
+     * @Class {@link Main}
      * @author Ryan Nascimento
      */
     public static int dificuldade(){
@@ -231,7 +261,11 @@ public class Main {
 
     /**
      * MÉTODO USADO PARA VERIFICAR O NÍVEL DE DIFICULDADE ESCOLHIDO.
-     * @param nivel 1 = FÁCIL, 2 = NORMAL, 3 = DIFÍCIL
+     * @Valor 1 = FÁCIL
+     * @Valor 2 = NORMAL
+     * @Valor 3 = DIFÍCIL
+     * @Class {@link Main}
+     * @param nivel
      * @author Ryan Nascimento
      */
     public static void validarDificuldade(int nivel){
@@ -254,29 +288,38 @@ public class Main {
 
     /**
      * MÉTODO USADO PARA VERIFICAR SE QUER INICIAR O JOGO OU NÃO.
+     * @Class {@link Main}
      * @author Lucas Boni
      */
     public static void novoJogo(){
         Scanner ler = new Scanner(System.in);
-        String opcao = "Nesta jornada você será resposável por controlar uma empresa herdada. Está preparado?\n" +
-                "Digite sim ou não.";
+        String opcao = "Nesta jornada você será resposável por controlar uma empresa herdada. Está preparado? (S ou N)";
         System.out.println(opcao);
         opcao = ler.next();
         validaNovoJogo(opcao.toLowerCase());
     }
 
     /**
-     * MÉTODO USADO PARA VALIDAR A FUNÇÃO DO NOVO JOGO.
+     * MÉTODO USADO PARA VALIDAR A RESPOSTA DO NOVO JOGO.
      * @Método novoJogo
+     * @param opcao
+     * @Valor s = Sim
+     * @Valor n = Não
      * @Class {@link Main}
      * @author Lucas Boni
      */
     public static void validaNovoJogo(String opcao){
-        if (opcao.equals("sim")){
-            System.out.println("......");
-            capitulo01();
-        }else {
-            menu();
+        switch (opcao){
+            case "s":
+                System.out.println("......");
+                capitulo01();
+                break;
+            case "n":
+                menu();
+                break;
+            default:
+                System.out.println("Digite somente S ou N. Por favor tente novamente.");
+                menu();
         }
     }
 
@@ -503,7 +546,9 @@ public class Main {
 
     /**
      * MÉTODO USADO PARA VALIDAR A RESPOSTA DA PRIMEIRA PERGUNTA DA INTRO DO JOGO.
-     * @Class {@link Main}
+     * @Method: p1Intro
+     * @param rP1
+     * @Class: {@link Main}
      * @author Gustavo Xavier.
      */
     public static void validaP1Intro(String rP1) {
@@ -594,7 +639,7 @@ public class Main {
 
     /**
      * MÉTODO USADO PARA IMPRIMIR A SEGUNDA PERGUNTA DA INTRO DO JOGO.
-     * @Class {@link Main}
+     * @Class: {@link Main}
      * @author Gustavo Xavier.
      */
     public static void p2Intro(){
@@ -629,7 +674,9 @@ public class Main {
 
     /**
      * MÉTODO USADO PARA VALIDAR A RESPOSTA DA SEGUNDA PERGUNTA DA INTRO DO JOGO.
-     * @Class {@link Main}
+     * @Method: p2Intro
+     * @Class: {@link Main}
+     * @param rP2
      * @author Gustavo Xavier.
      */
     public static void validaP2Intro(String rP2) {
@@ -672,7 +719,7 @@ public class Main {
 
     /**
      * MÉTODO MAIN DO PROJETO. ELE QUE IRÁ RODAR O JOGO.
-     * @param args RECEBE VALORES DA LINHA DE COMANDO
+     * @param args RECEBE VALORES DA LINHA DE COMANDO NA HORA DE RODAR A APLICAÇÃO
      * @Class {@link Main}
      * @author Lucas Boni
      */
