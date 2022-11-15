@@ -1,27 +1,32 @@
 /*::============================================================::
-  :: Instituição   : Senac - SP                                 ::
+  :: Institui��o   : Senac - SP                                 ::
   :: Desenvolvedor : Lucas Boni dos Santos                      ::
   :: Data:         : 31/10/2022                                 ::
   :: Projeto       : Jogo da aula de P.I                        ::
   ::============================================================::
   :: Desenvolvedor :                                            ::
-  :: Data          :                             Versão Java:   ::
-  :: Alteração     :                                            ::
+  :: Data          :                             Vers�o Java:   ::
+  :: Altera��o     :                                            ::
   ::============================================================::
   :: Desenvolvedor : Ryan Morais Do Nascimento                  ::
-  :: Data          : 03/11/2022                  Versão Java: 2 ::
-  :: Alteração     : Criei o menu de dificuldade e a validação  ::
+  :: Data          : 15/11/2022                  Vers�o Java: 3 ::
+  :: Altera��o     : Criei a primeira historia do jovo e sua    ::
+  ::               : valida��o.                                 ::
+  ::============================================================::
+  :: Desenvolvedor : Ryan Morais Do Nascimento                  ::
+  :: Data          : 03/11/2022                  Vers�o Java: 2 ::
+  :: Altera��o     : Criei o menu de dificuldade e a valida��o  ::
   ::============================================================::
   :: Desenvolvedor : Lucas Boni dos Santos                      ::
-  :: Data          : 05/11/2022                  Versão Java: 2 ::
-  :: Alteração     : Ajustado algumas funções da história e     ::
-  ::               : adicionado algumas novas validações.       ::
-  ::               : SP-0006 - Ajustar funções do Xavier e criar::
+  :: Data          : 05/11/2022                  Vers�o Java: 2 ::
+  :: Altera��o     : Ajustado algumas fun��es da hist�ria e     ::
+  ::               : adicionado algumas novas valida��es.       ::
+  ::               : SP-0006 - Ajustar fun��es do Xavier e criar::
   ::               : novas para validar as respostas.           ::
   ::============================================================::
   :: Desenvolvedor : Lucas Boni dos Santos                      ::
-  :: Data          : 31/10/2022                  Versão Java: 1 ::
-  :: Alteração     : Primeira versão                            ::
+  :: Data          : 31/10/2022                  Vers�o Java: 1 ::
+  :: Altera��o     : Primeira vers�o                            ::
   ::============================================================::*/
 
 package br.com.game.main;
@@ -89,8 +94,8 @@ public class Main {
         List<String> menu = new ArrayList<>();
 
         menu.add("Novo Jogo");
-        menu.add("Configurações");
-        menu.add("Créditos");
+        menu.add("Configura��es");
+        menu.add("Cr�ditos");
         menu.add("Sair");
 
         System.out.println("Bem vindo ao jogo do grupo 3\n" +
@@ -98,7 +103,7 @@ public class Main {
                 "2 -> "+menu.get(1)+"\n" +
                 "3 -> "+menu.get(2)+"\n" +
                 "4 -> "+menu.get(3)+"\n" +
-                "Escolha uma das opções");
+                "Escolha uma das op��es");
         String opcao = ler.next();
         validaOpcaoMenu(opcao);
     }
@@ -122,7 +127,7 @@ public class Main {
                 sair();
                 break;
             default:
-                System.err.print("Por favor, escolha uma das opções corretamente!");
+                System.err.print("Por favor, escolha uma das op��es corretamente!");
                 menu();
         }
     }
@@ -246,15 +251,15 @@ public class Main {
         Scanner input = new Scanner(System.in);
         List<String> dificuldades = new ArrayList<>();
 
-        dificuldades.add("Fácil");
+        dificuldades.add("F�cil");
         dificuldades.add("Normal");
-        dificuldades.add("Difícil");
+        dificuldades.add("Dif�cil");
 
-        System.out.println("Qual nível deseja jogar?\n" +
+        System.out.println("Qual n�vel deseja jogar?\n" +
                 "1 -> "+dificuldades.get(0)+"\n" +
                 "2 -> "+dificuldades.get(1)+"\n" +
                 "3 -> "+dificuldades.get(2)+"\n" +
-                "Escolha uma das opções");
+                "Escolha uma das op��es");
         int nivel = input.nextInt();
         return nivel;
     }
@@ -280,7 +285,7 @@ public class Main {
                 p1Intro();
                 break;
             default:
-                System.err.print("Valor inválido. Tente novamente");
+                System.err.print("Valor inv�lido. Tente novamente");
                 dificuldade();
                 break;
         }
@@ -329,7 +334,7 @@ public class Main {
      * @author Lucas Boni
      */
     public static void sair(){
-        System.out.println("Espero que volte :´)");
+        System.out.println("Espero que volte :�)");
         return;
     }
 
@@ -342,7 +347,7 @@ public class Main {
         try {
             Thread.sleep(tempoDasFalas);
             System.out.println("  _______");
-            System.out.println(" | °___  |");
+            System.out.println(" | �___  |");
             System.out.println(" |       |");
             System.out.println(" | 05:30!|");
             System.out.println(" |       |");
@@ -414,10 +419,10 @@ public class Main {
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(5000);
-            System.out.println("Já fazem cinco anos, mas você se lembra da cena "
-                    + "como se fosse ontem. A imagem de sua mãe com uma pequena mala"
-                    + " de roupas debaixo dos braços,\ndiscutindo e gritando com seu"
-                    + " pai enquanto andava em direção a estreita porta do "
+            System.out.println("J� fazem cinco anos, mas voc� se lembra da cena "
+                    + "como se fosse ontem. A imagem de sua m�e com uma pequena mala"
+                    + " de roupas debaixo dos bra�os,\ndiscutindo e gritando com seu"
+                    + " pai enquanto andava em dire��o a estreita porta do "
                     + "apartamento. ");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
@@ -426,7 +431,7 @@ public class Main {
                     + "dentro de casa. Ela raramente descansava,e se tornou obcecada"
                     + " e cega por seu trabalho, vivia falando que isso era\n?para o "
                     + "bem de todos e queria nos dar uma vida digna e melhor??,"
-                    + "porém isso não aconteceu, após diversas brigas ela decidiu "
+                    + "por�m isso n�o aconteceu, ap�s diversas brigas ela decidiu "
                     + "sair de casa e cortou total contato.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
@@ -483,7 +488,7 @@ public class Main {
             Thread.sleep(tempoDasFalas);
             System.out.println("Você chega deprimido e decide dormir. No dia seguinte "
                     + "acorda com seu pai te chamando,falando que ?tem um advogado "
-                    + "querendo falar com você??.");
+                    + "querendo falar com voc�??.");
             Thread.sleep(2500);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
@@ -498,7 +503,7 @@ public class Main {
                     + "aceitar o desafio de comandar uma empresa ?");
             System.out.println(" ");
         }catch (InterruptedException e){
-            throw new RuntimeException("Erro na execução de um sleep.", e);
+            throw new RuntimeException("Erro na execu��o de um sleep.", e);
         }
         p2Intro();
     }
@@ -531,7 +536,7 @@ public class Main {
             System.out.println("|_________________________________|");
             Thread.sleep(2500);
             System.out.println(" ");
-            System.out.println("A sua Respota é: ");
+            System.out.println("A sua Respota �: ");
             String rP1 = input.next();
             vidaDinheiro = calcularStatus(vidaDinheiro);
             vidaDinheiro = validaLimiteVida(vidaDinheiro);
@@ -540,7 +545,7 @@ public class Main {
             System.exit(0);
             validaP1Intro(rP1);
         }catch(InterruptedException e){
-            throw new RuntimeException("Erro na execução de um sleep.", e);
+            throw new RuntimeException("Erro na execu��o de um sleep.", e);
         }
     }
 
@@ -558,16 +563,16 @@ public class Main {
                     Thread.sleep(2500);
                     System.out.println(" ");
                     System.out.println("Chegando no trabalho foram dados diversos carros"
-                            + " para você estacionar, o sono e cansaço estão te "
-                            + "atrapalhando de forma severa, após quatro copos de café\n"
-                            + "e levar o rosto várias vezes você ainda se sente casado.");
+                            + " para voc� estacionar, o sono e cansa�o est�o te "
+                            + "atrapalhando de forma severa, ap�s quatro copos de caf�\n"
+                            + "e levar o rosto v�rias vezes voc� ainda se sente casado.");
                     Thread.sleep(5500);
-                    System.out.println("\nPerto do fim do expediente chega o último carro do "
-                            + "dia. É um carro de passeio todo preto e dele desce um"
-                            + "homem,\nele está meio apresentado, joga as chaves na "
-                            + "sua mão e entra correndo para dentro da empresa.");
+                    System.out.println("\nPerto do fim do expediente chega o �ltimo carro do "
+                            + "dia. � um carro de passeio todo preto e dele desce um"
+                            + "homem,\nele est� meio apresentado, joga as chaves na "
+                            + "sua m�o e entra correndo para dentro da empresa.");
                     Thread.sleep(5500);
-                    System.out.println("\nA maioria das vagas estão ocupadas, então você tem que ir para o estacionamento"
+                    System.out.println("\nA maioria das vagas est�o ocupadas, ent�o voc� tem que ir para o estacionamento"
                             + "dos fundos da empresa.\nDirigindo com sono em lugar "
                             + "escuro você acaba ralando o carro em uma caçamba de lixo."
                             + " O seu supervisor vê a cena e avisa para o chefe.\nAo fim "
@@ -575,26 +580,26 @@ public class Main {
                     Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     Thread.sleep(2500);
-                    System.out.println("Você...");
+                    System.out.println("Voc�...");
                     Thread.sleep(2500);
-                    System.out.println("Está...");
+                    System.out.println("Est�...");
                     Thread.sleep(2500);
                     System.out.println("Demitido!");
                     break;
                 case "b":
                     Thread.sleep(2500);
                     System.out.println(" ");
-                    System.out.println("Após acordar do seu cochilo você pega seu "
-                            + "celular e se depara com o seguinte cenário"
-                            + " ?2 ligações perdidas e 7 mensagens não lidas??.\n"
-                            + "Seu chefe está furioso, pois não tinha ninguém para "
+                    System.out.println("Ap�s acordar do seu cochilo voc� pega seu "
+                            + "celular e se depara com o seguinte cen�rio"
+                            + " ?2 liga��es perdidas e 7 mensagens n�o lidas??.\n"
+                            + "Seu chefe est� furioso, pois n�o tinha ningu�m para "
                             + "estacionar os carros.");
                     Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     Thread.sleep(2500);
-                    System.out.println("Você...");
+                    System.out.println("Voc�...");
                     Thread.sleep(2500);
-                    System.out.println("Está...");
+                    System.out.println("Est�...");
                     Thread.sleep(2500);
                     System.out.println("Demitido!");
                     break;
@@ -602,17 +607,17 @@ public class Main {
                     Thread.sleep(2500);
                     System.out.println(" ");
                     Thread.sleep(5500);
-                    System.out.println("\nVocê cehga atrasado no trabalho e foram dados diversos carros"
-                            + " para você estacionar. Perto do fim do expediente é dado o "
-                            + "último carro do dia.\nÉ um carro de passeio todo preto"
-                            + " e dele desce um homem, ele está meio apresentado, "
-                            + "joga as chaves na sua mão e entra correndo para "
+                    System.out.println("\nVoc� cehga atrasado no trabalho e foram dados diversos carros"
+                            + " para voc� estacionar. Perto do fim do expediente � dado o "
+                            + "�ltimo carro do dia.\n� um carro de passeio todo preto"
+                            + " e dele desce um homem, ele est� meio apresentado, "
+                            + "joga as chaves na sua m�o e entra correndo para "
                             + "dentro da empresa.");
                     Thread.sleep(5500);
-                    System.out.println("\nA maioria das vagas estão ocupadas, "
-                            + "então você tem que ir para o estacionamento dos "
-                            + "fundos da empresa.\nVocê guarda o carro na vaga e "
-                            + "volta para onde estava antes." + " Seu supervisor não "
+                    System.out.println("\nA maioria das vagas est�o ocupadas, "
+                            + "ent�o voc� tem que ir para o estacionamento dos "
+                            + "fundos da empresa.\nVoc� guarda o carro na vaga e "
+                            + "volta para onde estava antes." + " Seu supervisor n�o "
                             + "parece estar muito feliz, ele pergunta o motivo de "
                             + "seu atraso hoje.");
                     Thread.sleep(5500);
@@ -622,18 +627,18 @@ public class Main {
                     Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     Thread.sleep(2500);
-                    System.out.println("Você...");
+                    System.out.println("Voc�...");
                     Thread.sleep(2500);
-                    System.out.println("Está...");
+                    System.out.println("Est�...");
                     Thread.sleep(2500);
                     System.out.println("Demitido!");
                     break;
                 default:
-                    System.out.println("Opção Inválida, escolha apenas entre a, b ou c\n >:(");
+                    System.out.println("Op��o Inv�lida, escolha apenas entre a, b ou c\n >:(");
                     p1Intro();
             }
         }catch (InterruptedException e){
-            throw new RuntimeException("Erro na execução de um sleep.", e);
+            throw new RuntimeException("Erro na execu��o de um sleep.", e);
         }
     }
 
@@ -664,11 +669,11 @@ public class Main {
             System.out.println("|_________________________________|");
             Thread.sleep(2500);
             System.out.println(" ");
-            System.out.println("A sua Respota é: ");
+            System.out.println("A sua Respota �: ");
             String rP2 = input.next();
             validaP2Intro(rP2);
         }catch (InterruptedException e){
-            throw new RuntimeException("Erro na execução de um sleep.", e);
+            throw new RuntimeException("Erro na execu��o de um sleep.", e);
         }
     }
 
@@ -686,34 +691,250 @@ public class Main {
                 case "a":
                     Thread.sleep(2500);
                     System.out.println(" ");
-                    System.out.println("Ele te entrega um contrato e pede para que você assine com seu nome. Qual o seu nome? ");
-                    System.out.println("A sua Respota é: ");
+                    System.out.println("Ele te entrega um contrato e pede para que voc� assine com seu nome. Qual o seu nome? ");
+                    System.out.println("A sua Respota �: ");
                     String nome = input.next();
                     System.out.println("nome");
-                    System.out.println("Após isso ele passa o contato de um importante funcionário e amigo de sua mãe e fala que ele já tem um grandeconhecimento da empresa e pode te ajudar. ");
+                    System.out.println("Ap�s isso ele passa o contato de um importante funcion�rio e amigo de sua m�e e fala que ele j� tem um grandeconhecimento da empresa e pode te ajudar. ");
                     break;
                 case "b":
                     Thread.sleep(2500);
                     System.out.println(" ");
-                    System.out.println("Você decide não aceitar comandar a empresa, "
-                            + "e decide vendê-la, com esse dinheiro você consegue ajudar "
-                            + "seu pai em casa.\nPouco tempo depois você consegue "
+                    System.out.println("Voc� decide n�o aceitar comandar a empresa, "
+                            + "e decide vend�-la, com esse dinheiro voc� consegue ajudar "
+                            + "seu pai em casa.\nPouco tempo depois voc� consegue "
                             + "arrumar um novo emprego como entregador de encomendas. ");
                     break;
                 case "c":
                     Thread.sleep(2500);
                     System.out.println(" ");
-                    System.out.println("Você rasga o contrato com raiva, o advogado "
-                            + "te encara meio confuso porém não nem uma pergunta, "
-                            + "apenas se levanta e sai.\nPouco tempo depois você "
+                    System.out.println("Voc� rasga o contrato com raiva, o advogado "
+                            + "te encara meio confuso por�m n�o nem uma pergunta, "
+                            + "apenas se levanta e sai.\nPouco tempo depois voc� "
                             + "consegue arrumar um novo emprego como entregador de encomendas. ");
                     break;
                 default:
-                    System.out.println("Opção Inválida, escolha apenas entre a, b ou c\n >:(");
+                    System.out.println("Op��o Inv�lida, escolha apenas entre a, b ou c\n >:(");
                     p2Intro();
             }
         }catch (InterruptedException e){
-            throw new RuntimeException("Erroa na execução de um sleep.", e);
+            throw new RuntimeException("Erroa na execu��o de um sleep.", e);
+        }
+    }
+
+
+    /* --------iNTRODU��O -------- */
+    public static void capituloTxt02(){
+        try{
+            Thread.sleep(1200);
+            System.out.println(" ");
+            Thread.sleep(3500);
+            System.out.println("Ol�,jogador, tudo bem? O jogo � dividido em cap�tulos com cerca de duas a tr�s perguntas cada. " + "\n" +
+                                "Ap�s o final do cap�tulo � a apresentado o lucro da empresa e sa�de mental" + "\n" +
+                                 "de seu personagem, caso a sa�de ou o lucro seja igual a 0 � apresentado a mensagem de game over.");
+
+            Thread.sleep(1200);
+            System.out.println(" ");
+            Thread.sleep(3500);
+            System.out.println("A empresa tem um gasto para se manter ent�o a cada troca de catipo voc� perde o valor de 8 mil reais.");
+
+            Thread.sleep(1200);
+            System.out.println(" ");
+            Thread.sleep(3500);
+            System.out.println("Tome cuidado com quem voc� fecha parcerias, nem todas empresas t�m interesses sinceros =(");
+
+
+            //-------SOBRE A EMPRESA ---------//
+            Thread.sleep(2400);
+            System.out.println(" ");
+            Thread.sleep(3500);
+            System.out.println("Sua empresa � voltada para �rea da tecnologia, focada em produ��o de softwares e tem como " +
+                                "atividade secund�ria a produ��o de aparelhos eletr�nicos.");
+
+            Thread.sleep(1200);
+            System.out.println(" ");
+            Thread.sleep(3500);
+            System.out.println("O funcion�rio � um amigo pr�ximo de sua m�e, o seu nome � Davi e ele vai te ajudar nessa primeira semana de introdu��o. " +
+                                "\n" +
+                                "Ele tem bastante tempo de empresa e foi praticamente um dos primeiros a serem contratados.");
+
+            Thread.sleep(1200);
+            System.out.println(" ");
+            Thread.sleep(3500);
+            System.out.println("Voc� chega na empresa e ao entrar todos est�o te olhando, o novo CEO � o foco das aten��es. O pr�dio � pequeno e tem cerca de trinta funcion�rios, " + "\n" +
+                                "alguns te comprimentam de forma gentil e outras te olham com certo desd�m, como se n�o confiassem no seu potencial. Voc� est� empenhado nos estudos para " +"\n" +
+                                "melhorar sua autoconfian�a e conhecimento." );
+
+            Thread.sleep(1200);
+            System.out.println(" ");
+            Thread.sleep(3500);
+            System.out.println("Ap�s uma semana aparentemente tranquila no comando da empresa voc� come�a a notar um certo movimento dos seus colaboradores. Devido a transi��o de CEO a " + "\n" +
+                                "empresa aparenta estar bagun�ada. As divis�es de departamentos e cargos est�o fora de ordem e alguns funcion�rios se queixam de que est�o fazendo " + "\n" +
+                                "fun��es desconexas das que foram de fato contratados para fazer.");
+
+            Thread.sleep(2000);
+            System.out.println(" ");
+            System.out.println("O que deseja fazer?");
+
+            resposta01();
+
+        }catch (InterruptedException e){
+            throw new RuntimeException("Erro na execu��o de um sleep.", e);
+        }
+
+    }
+
+    /* -------- RESPOSTA -------- */
+    public static void resposta01(){
+        Scanner input = new Scanner(System.in);
+        try{
+            Thread.sleep(3500);
+            System.out.println(" __________________________________");
+            System.out.println("|                                  |");
+            System.out.println("| a) Analisar a empresa e realizar |");
+            System.out.println("|   a divis�o de cargos e fun��es. |");
+            System.out.println("|__________________________________|");
+            Thread.sleep(3500);
+            System.out.println(" ");
+            System.out.println(" __________________________________");
+            System.out.println("|                                  |");
+            System.out.println("| b) Manter a empresa como est�.   |");
+            System.out.println("|__________________________________|");
+            Thread.sleep(3500);
+            System.out.println(" ");
+            System.out.println(" __________________________________");
+            System.out.println("|                                  |");
+            System.out.println("| c) Realizar a divis�o sem nem um |");
+            System.out.println("|   tipo de pesquisa ou fundamento.|");
+            System.out.println("|__________________________________|");
+            Thread.sleep(2500);
+            System.out.println(" ");
+            System.out.println("A sua resposta �: ");
+            String resposta01 = input.next();
+            validaResposta01(resposta01);
+
+        }catch (InterruptedException e){
+            throw new RuntimeException("Erro na execu��o de um sleep.", e);
+        }
+    }
+
+    /* -------- VALIDA RESPOSTA 01 -------- */
+    public static void validaResposta01(String resposta01) {
+        Scanner input = new Scanner(System.in);
+        try{
+            switch (resposta01){
+                case "a":
+                    Thread.sleep(2500);
+                    System.out.println(" ");
+                    System.out.println("A divis�o de cargos foi um sucesso, os colaboradores est�o mais felizes, \n" +
+                                        "focados e produtivos ap�s a mudan�a. ");
+                    break;
+
+                case "b":
+                    Thread.sleep(2500);
+                    System.out.println(" ");
+                    System.out.println("A empresa mant�m o mesmo formato, seus funcion�rios continuam meio confusos e perdidos. \n " +
+                                        "A longo prazo isso pode prejudicar os lucros e funcionamento da empresa. ");
+                    break;
+
+                case "c":
+                    Thread.sleep(2500);
+                    System.out.println(" ");
+                    System.out.println("A empresa est� pior do que antes, dividir cargos e fun��es sem nenhum tipo de pesquisa \n" +
+                                        "foi uma p�ssima ideia. Seus funcion�rios est�o mais perdidos do que antes, e isso afeta diretamente os lucros da empresa.");
+                    break;
+                default:
+                    System.out.println("Op��o Inv�lida, escolha apenas entre a, b ou c\n >:(");
+                    resposta01();
+            }
+        }catch (InterruptedException e){
+            throw new RuntimeException("Erroa na execu��o de um sleep.", e);
+        }
+    }
+
+
+    public static void capituloTxt02_2(){
+        try{
+            Thread.sleep(1200);
+            System.out.println(" ");
+            Thread.sleep(3500);
+            System.out.println("Surge a oportunidade de uma parceria com uma empresa maior. Eles desejam dar suporte de forma financeira \n" +
+                                "a produ��o de um software voltado para a organiza��o da rotina. Ajudando a arcar com os gastos de publica��o \n" +
+                                "do aplicativo nas lojas digitais e cuidando de parte do marketing e divulga��o.");
+
+            Thread.sleep(2000);
+            System.out.println(" ");
+            System.out.println("Deseja fechar essa parceria?");
+
+            resposta02();
+
+        }catch (InterruptedException e){
+            throw new RuntimeException("Erro na execu��o de um sleep.", e);
+        }
+
+        }
+
+    /* -------- RESPOSTA 02 -------- */
+    public static void resposta02(){
+        Scanner input = new Scanner(System.in);
+        try{
+            Thread.sleep(3500);
+            System.out.println(" __________________________________");
+            System.out.println("|                                  |");
+            System.out.println("| a) Recusar parceria.             |");
+            System.out.println("|__________________________________|");
+            Thread.sleep(3500);
+            System.out.println(" ");
+            System.out.println(" __________________________________");
+            System.out.println("|                                  |");
+            System.out.println("| b) Aceitar parceria.             |");
+            System.out.println("|__________________________________|");
+            Thread.sleep(3500);
+            System.out.println(" ");
+            System.out.println(" __________________________________");
+            System.out.println("|                                  |");
+            System.out.println("| c) N�o dar resposta � empresa.   |");
+            System.out.println("|__________________________________|");
+            Thread.sleep(2500);
+            System.out.println(" ");
+            System.out.println("A sua resposta �: ");
+            String resposta02 = input.next();
+            validaResposta02(resposta02);
+
+        }catch (InterruptedException e){
+            throw new RuntimeException("Erro na execu��o de um sleep.", e);
+        }
+    }
+
+    /* -------- VALIDA RESPOSTA 02 -------- */
+    public static void validaResposta02(String resposta02) {
+        Scanner input = new Scanner(System.in);
+        try{
+            switch (resposta02){
+                case "a":
+                    Thread.sleep(2500);
+                    System.out.println(" ");
+                    System.out.println("Voc� recusa a parceria e deseja seguir a ideia do software sem ajuda, os gastos s�o praticamente iguais aos lucros.\n");
+                    break;
+
+                case "b":
+                    Thread.sleep(2500);
+                    System.out.println(" ");
+                    System.out.println("A parceria deu certo e gerou lucros para ambos os lados permitindo futuras parcerias");
+                    break;
+
+                case "c":
+                    Thread.sleep(2500);
+                    System.out.println(" ");
+                    System.out.println("N�o dar resposta a empresa foi uma escolha ruim, seu nome come�a ficar mal falado");
+                    break;
+
+                default:
+                    System.out.println("Op��o Inv�lida, escolha apenas entre a, b ou c\n >:(");
+                    resposta02();
+            }
+        }catch (InterruptedException e){
+            throw new RuntimeException("Erroa na execu��o de um sleep.", e);
         }
     }
 
