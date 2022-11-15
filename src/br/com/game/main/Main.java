@@ -9,6 +9,11 @@
   :: Alteração     :                                            ::
   ::============================================================::
   :: Desenvolvedor : Ryan Morais Do Nascimento                  ::
+  :: Data          : 15/11/2022                  Versão Java: 3 ::
+  :: Alteração     : Criei a primeira historia do jovo e sua    ::
+  ::               : validação.                                 ::
+  ::============================================================::
+  :: Desenvolvedor : Ryan Morais Do Nascimento                  ::
   :: Data          : 03/11/2022                  Versão Java: 2 ::
   :: Alteração     : Criei o menu de dificuldade e a validação  ::
   ::============================================================::
