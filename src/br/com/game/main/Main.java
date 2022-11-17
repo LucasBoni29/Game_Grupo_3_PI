@@ -40,7 +40,14 @@ public class Main {
     /* ==================*/
     /* Variáveis Globais */
     /* ==================*/
-
+	
+	/**
+     * VARIÁVEL PARA ARMAZENAR O NOME DO JOGADOR
+     * @Class {@link Main}
+     * @author Lucas Boni
+     * @author Gustavo Xavier
+     */
+	static String nome = "";
     /**
      * VARIÁVEL PARA ARMAZENAR VIDA E DINHEIRO DO JOGADOR
      * @Índice 0 = VIDA
@@ -49,7 +56,7 @@ public class Main {
      * @author Lucas Boni
      * @author Gustavo Xavier
      */
-    static int[] vidaDinheiro = {100, 20000};
+    static int[] vidaDinheiro = {100, 200};
 
     /**
      * VARIÁVEL PARA ARMAZENAR O TEMPO DAS FALAS
@@ -94,7 +101,8 @@ public class Main {
         List<String> menu = new ArrayList<>();
 
         menu.add("Novo Jogo");
-        menu.add("Configura��es");
+        menu.add("Carregar Jogo");
+        menu.add("Instru��es");
         menu.add("Cr�ditos");
         menu.add("Sair");
 
@@ -123,11 +131,27 @@ public class Main {
             case "1":
                 novoJogo();
                 break;
+            case "2":
+            	System.out.println("O jogo ser� baseado em escolhas boas, neutras e ruins.\n"
+            			+ "Voc� tamb�m ter� uma barra de vida e dinheiro.\n"
+            			+ "Caso sua vida chegue a 0, ou o seu dinheiro seja insuficiante para manter a empresa, voc� perde.\n");
+            	menu();
+            	break;
+            case "3":
+            	System.out.println("================DESENVOLVEDORES================\n"
+            			+ "Lucas Boni dos Santos\n"
+            			+ "Gustavo Xavier\n"
+            			+ "Ryan Nascimento\n"
+            			+ "Matheus Terzi\n"
+            			+ "================GESTOR================\n"
+            			+ "Lucas Boni dos Santos\n");
+            	menu();
+            	break;
             case "4":
                 sair();
                 break;
             default:
-                System.err.print("Por favor, escolha uma das op��es corretamente!");
+                System.err.print("Por favor, escolha uma das op��es corretamente!\n");
                 menu();
         }
     }
@@ -140,16 +164,22 @@ public class Main {
      */
     public static void mostrarStatus(){
         try {
+        	String[] hpDinheiro = {"HP", "R$"};
+        	int contador = 0;
+        	
             System.out.println("==================\n" +
                     "MOSTRANDO STATUS\n" +
                     "==================");
             System.out.println("");
             Thread.sleep(tempoDasFalas);
-            System.out.println("===============\n" +
-                    "HP: "+vidaDinheiro[0]+"\n" +
-                    "===============\n" +
-                    "R$: "+vidaDinheiro[1]+"\n" +
-                    "===============");
+            
+            for(int status : vidaDinheiro) {
+            	System.out.println("===============\n"
+            +hpDinheiro[contador]+": "+status+"\n" +
+                        "===============");
+            	contador++;
+            }
+            
         } catch (InterruptedException e) {
             throw new RuntimeException("Erro na execução de um sleep",e);
         }
@@ -167,25 +197,25 @@ public class Main {
         try {
             if (statusVida == 1 && statusDinheiro == 2){
                 status[0] += dano.nextInt(20) + 10;
-                status[1] -= dano.nextInt(7000)+ 5000;
+                status[1] -= dano.nextInt(7000)+ tempoDasFalas;
                 statusVida = 0;
                 statusDinheiro = 0;
                 return status;
             } else if (statusVida == 2 && statusDinheiro == 1) {
                 status[0] -= dano.nextInt(20) + 10;
-                status[1] += dano.nextInt(7000)+ 5000;
+                status[1] += dano.nextInt(7000)+ tempoDasFalas;
                 statusVida = 0;
                 statusDinheiro = 0;
                 return status;
-            } else if (statusVida == 1 && statusDinheiro == 2) {
+            } else if (statusVida == 1 && statusDinheiro == 1) {
                 status[0] += dano.nextInt(20) + 10;
-                status[1] += dano.nextInt(7000)+ 5000;
+                status[1] += dano.nextInt(7000)+ tempoDasFalas;
                 statusVida = 0;
                 statusDinheiro = 0;
                 return status;
             }
             status[0] -= dano.nextInt(20) + 10;
-            status[1] -= dano.nextInt(7000)+ 5000;
+            status[1] -= dano.nextInt(7000)+ tempoDasFalas;
             statusVida = 0;
             statusDinheiro = 0;
             System.out.println("==================\n" +
@@ -210,6 +240,9 @@ public class Main {
         if (status[0] > 100){
             status[0] = 100;
             return status;
+        } else if (status[0] < 0) {
+        	status[0] = 0;
+        	return status;
         }
         return status;
     }
@@ -224,7 +257,7 @@ public class Main {
     public static void validaGameOver(int[] status){
             try {
                 if (status[0] <= 0){
-                    System.out.println("Sua vida chegou a 0. Você perdeu.");
+                    System.out.println("Sua vida chegou a 0. Você perdeu. Game Over!");
                     System.exit(0);
                 } else if (status[1] <= 0) {
                     System.out.println("Seu dinheiro chegou a "+status[1]+". Você perdeu.");
@@ -317,14 +350,14 @@ public class Main {
         switch (opcao){
             case "s":
                 System.out.println("......");
-                capitulo01();
+                txtIntro01();
                 break;
             case "n":
                 menu();
                 break;
             default:
                 System.out.println("Digite somente S ou N. Por favor tente novamente.");
-                menu();
+                novoJogo();
         }
     }
 
@@ -335,7 +368,7 @@ public class Main {
      */
     public static void sair(){
         System.out.println("Espero que volte :�)");
-        return;
+        System.exit(0);
     }
 
     /**
@@ -343,7 +376,7 @@ public class Main {
      * @Class {@link Main}
      * @author Gustavo Xavier.
      */
-    public static void txtIntro(){
+    public static void txtIntro01(){
         try {
             Thread.sleep(tempoDasFalas);
             System.out.println("  _______");
@@ -406,7 +439,7 @@ public class Main {
                     + " com olheiras.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(5000);
+            Thread.sleep(tempoDasFalas);
             System.out.println("Olhando para si mesmo  lembra do filme "
                     + "?eu sou a lenda??, que assistiu no fim de semana passado. "
                     + "Infelizmente, você não é o Will Smith\ne muito menos um pastor"
@@ -418,7 +451,7 @@ public class Main {
                     + " seu gato chamado Frederico. Sua mãe deixou a casa após abrir uma empresa. ");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(5000);
+            Thread.sleep(tempoDasFalas);
             System.out.println("J� fazem cinco anos, mas voc� se lembra da cena "
                     + "como se fosse ontem. A imagem de sua m�e com uma pequena mala"
                     + " de roupas debaixo dos bra�os,\ndiscutindo e gritando com seu"
@@ -426,7 +459,7 @@ public class Main {
                     + "apartamento. ");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(5000);
+            Thread.sleep(tempoDasFalas);
             System.out.println("Ela sofria de Burnout e acabava descontado isso"
                     + "dentro de casa. Ela raramente descansava,e se tornou obcecada"
                     + " e cega por seu trabalho, vivia falando que isso era\n?para o "
@@ -435,7 +468,7 @@ public class Main {
                     + "sair de casa e cortou total contato.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(5000);
+            Thread.sleep(tempoDasFalas);
             System.out.println("Desde então vocês não se falaram, você não tem "
                     + "mais noticias, não sabe se ela está bem, não sabe sequer se "
                     + "está viva. \nNem tudo são flores, mas nem tudo são espinhos "
@@ -448,7 +481,7 @@ public class Main {
                     + "e dormir é tentadora.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(5000);
+            Thread.sleep(tempoDasFalas);
             System.out.println("Durante o mês passado você teve que cobrir o "
                     + "horário de outro funcionário, pois ele tinha ficado doente. "
                     + "Na hora de receber o seu salário a empresa falou que o\n"
@@ -456,7 +489,7 @@ public class Main {
                     + "você havia feito, e por isso não iam te pagar a mais.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(5000);
+            Thread.sleep(tempoDasFalas);
             System.out.println("Ontem esse mesmo funcionário foi demitido e por "
                     + "falta de pessoas você teve que trabalhar até mais tarde "
                     + "novamente, e com isso \nvocê chegou em casa por volta da 1:30 da  manhã.");
@@ -474,7 +507,7 @@ public class Main {
      * @Class {@link Main}
      * @author Gustavo Xavier.
      */
-    public static void capitulo01(){
+    public static void txtIntro02(){
         try{
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
@@ -483,19 +516,19 @@ public class Main {
                     + "acontecer novamente você tem as seguintes opções: ");
             System.out.println(" ");
             p1Intro();
-            Thread.sleep(2500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
             System.out.println("Você chega deprimido e decide dormir. No dia seguinte "
                     + "acorda com seu pai te chamando,falando que ?tem um advogado "
                     + "querendo falar com voc�??.");
-            Thread.sleep(2500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
             System.out.println("Ele está sentado na cozinha explica que você é herdeiro "
                     + "direto da empresa da sua mãe, e que ela infelizmente "
                     + "morreu de covid...");
-            Thread.sleep(2500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
             System.out.println("Essa notícia te deixa abalado, mas também te motiva a "
@@ -516,7 +549,6 @@ public class Main {
     public static void p1Intro(){
         Scanner input = new Scanner(System.in);
         try {
-            mostrarStatus();
             Thread.sleep(tempoDasFalas);
             System.out.println(" _________________________________");
             System.out.println("|                                 |");
@@ -534,16 +566,11 @@ public class Main {
             System.out.println("|                                 |");
             System.out.println("| c) Cochilar e chegar atrasado.  |");
             System.out.println("|_________________________________|");
-            Thread.sleep(2500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             System.out.println("A sua Respota �: ");
             String rP1 = input.next();
-            vidaDinheiro = calcularStatus(vidaDinheiro);
-            vidaDinheiro = validaLimiteVida(vidaDinheiro);
-            validaGameOver(vidaDinheiro);
-            mostrarStatus();
-            System.exit(0);
-            validaP1Intro(rP1);
+            validaP1Intro(rP1.toLowerCase());
         }catch(InterruptedException e){
             throw new RuntimeException("Erro na execu��o de um sleep.", e);
         }
@@ -560,18 +587,18 @@ public class Main {
         try{
             switch (rP1) {
                 case "a":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("Chegando no trabalho foram dados diversos carros"
                             + " para voc� estacionar, o sono e cansa�o est�o te "
                             + "atrapalhando de forma severa, ap�s quatro copos de caf�\n"
                             + "e levar o rosto v�rias vezes voc� ainda se sente casado.");
-                    Thread.sleep(5500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("\nPerto do fim do expediente chega o �ltimo carro do "
                             + "dia. � um carro de passeio todo preto e dele desce um"
                             + "homem,\nele est� meio apresentado, joga as chaves na "
                             + "sua m�o e entra correndo para dentro da empresa.");
-                    Thread.sleep(5500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("\nA maioria das vagas est�o ocupadas, ent�o voc� tem que ir para o estacionamento"
                             + "dos fundos da empresa.\nDirigindo com sono em lugar "
                             + "escuro você acaba ralando o carro em uma caçamba de lixo."
@@ -579,15 +606,15 @@ public class Main {
                             + "do expediente ele pede para que você passe no RH.");
                     Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("Voc�...");
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("Est�...");
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("Demitido!");
                     break;
                 case "b":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("Ap�s acordar do seu cochilo voc� pega seu "
                             + "celular e se depara com o seguinte cen�rio"
@@ -596,41 +623,41 @@ public class Main {
                             + "estacionar os carros.");
                     Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("Voc�...");
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("Est�...");
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("Demitido!");
                     break;
                 case "c":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
-                    Thread.sleep(5500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("\nVoc� cehga atrasado no trabalho e foram dados diversos carros"
                             + " para voc� estacionar. Perto do fim do expediente � dado o "
                             + "�ltimo carro do dia.\n� um carro de passeio todo preto"
                             + " e dele desce um homem, ele est� meio apresentado, "
                             + "joga as chaves na sua m�o e entra correndo para "
                             + "dentro da empresa.");
-                    Thread.sleep(5500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("\nA maioria das vagas est�o ocupadas, "
                             + "ent�o voc� tem que ir para o estacionamento dos "
                             + "fundos da empresa.\nVoc� guarda o carro na vaga e "
                             + "volta para onde estava antes." + " Seu supervisor n�o "
                             + "parece estar muito feliz, ele pergunta o motivo de "
                             + "seu atraso hoje.");
-                    Thread.sleep(5500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("\nSendo honesto você explica sua "
                             + "situação. Porém isso não ajuda muito, ele pede "
                             + "para que você passe no RH.");
                     Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("Voc�...");
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("Est�...");
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println("Demitido!");
                     break;
                 default:
@@ -667,7 +694,7 @@ public class Main {
             System.out.println("|                                 |");
             System.out.println("| c) Rasgar o contrato            |");
             System.out.println("|_________________________________|");
-            Thread.sleep(2500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             System.out.println("A sua Respota �: ");
             String rP2 = input.next();
@@ -689,29 +716,35 @@ public class Main {
         try{
             switch (rP2){
                 case "a":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("Ele te entrega um contrato e pede para que voc� assine com seu nome. Qual o seu nome? ");
-                    System.out.println("A sua Respota �: ");
-                    String nome = input.next();
-                    System.out.println("nome");
-                    System.out.println("Ap�s isso ele passa o contato de um importante funcion�rio e amigo de sua m�e e fala que ele j� tem um grandeconhecimento da empresa e pode te ajudar. ");
+                    nome = input.next();
+                    System.out.println("Ap�s isso ele passa o contato de um importante funcion�rio e amigo de sua m�e e fala que ele j� tem um grande conhecimento da empresa e pode te ajudar. ");
                     break;
                 case "b":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
-                    System.out.println("Voc� decide n�o aceitar comandar a empresa, "
-                            + "e decide vend�-la, com esse dinheiro voc� consegue ajudar "
-                            + "seu pai em casa.\nPouco tempo depois voc� consegue "
-                            + "arrumar um novo emprego como entregador de encomendas. ");
+                    System.out.println("Voc� decide n�o aceitar comandar a empresa,"
+                            + "e decide vend�-la, com esse dinheiro voc� consegue ajudar"
+                            + "seu pai em casa.\nPouco tempo depois voc� consegue"
+                            + "arrumar um novo emprego como entregador de encomendas.");
+                    Thread.sleep(tempoDasFalas);
+                    System.out.println(" ");
+                    System.out.println("Que pena que voc� n�o aceitou o desafio. Fim de jogo.");
+                    System.exit(0);
                     break;
                 case "c":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("Voc� rasga o contrato com raiva, o advogado "
                             + "te encara meio confuso por�m n�o nem uma pergunta, "
                             + "apenas se levanta e sai.\nPouco tempo depois voc� "
                             + "consegue arrumar um novo emprego como entregador de encomendas. ");
+                    Thread.sleep(tempoDasFalas);
+                    System.out.println(" ");
+                    System.out.println("Que pena que voc� n�o aceitou o desafio. Fim de jogo.");
+                    System.exit(0);
                     break;
                 default:
                     System.out.println("Op��o Inv�lida, escolha apenas entre a, b ou c\n >:(");
@@ -724,59 +757,70 @@ public class Main {
 
 
     /* --------iNTRODU��O -------- */
-    public static void capituloTxt02(){
+    public static void capitulo01(){
         try{
-            Thread.sleep(1200);
+        	System.out.println("==================\n" +
+                    "CAP�TULO 1\n" +
+                    "==================");
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(3500);
-            System.out.println("Ol�,jogador, tudo bem? O jogo � dividido em cap�tulos com cerca de duas a tr�s perguntas cada. " + "\n" +
+            Thread.sleep(tempoDasFalas);
+            System.out.println("Ol�,"+nome+", tudo bem? O jogo � dividido em cap�tulos com cerca de duas a tr�s perguntas cada. " + "\n" +
                                 "Ap�s o final do cap�tulo � a apresentado o lucro da empresa e sa�de mental" + "\n" +
                                  "de seu personagem, caso a sa�de ou o lucro seja igual a 0 � apresentado a mensagem de game over.");
-
-            Thread.sleep(1200);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println("A empresa tem um gasto para se manter ent�o a cada troca de catipo voc� perde o valor de 8 mil reais.");
 
-            Thread.sleep(1200);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println("Tome cuidado com quem voc� fecha parcerias, nem todas empresas t�m interesses sinceros =(");
 
 
             //-------SOBRE A EMPRESA ---------//
-            Thread.sleep(2400);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println("Sua empresa � voltada para �rea da tecnologia, focada em produ��o de softwares e tem como " +
                                 "atividade secund�ria a produ��o de aparelhos eletr�nicos.");
 
-            Thread.sleep(1200);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println("O funcion�rio � um amigo pr�ximo de sua m�e, o seu nome � Davi e ele vai te ajudar nessa primeira semana de introdu��o. " +
                                 "\n" +
                                 "Ele tem bastante tempo de empresa e foi praticamente um dos primeiros a serem contratados.");
 
-            Thread.sleep(1200);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println("Voc� chega na empresa e ao entrar todos est�o te olhando, o novo CEO � o foco das aten��es. O pr�dio � pequeno e tem cerca de trinta funcion�rios, " + "\n" +
                                 "alguns te comprimentam de forma gentil e outras te olham com certo desd�m, como se n�o confiassem no seu potencial. Voc� est� empenhado nos estudos para " +"\n" +
                                 "melhorar sua autoconfian�a e conhecimento." );
 
-            Thread.sleep(1200);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println("Ap�s uma semana aparentemente tranquila no comando da empresa voc� come�a a notar um certo movimento dos seus colaboradores. Devido a transi��o de CEO a " + "\n" +
                                 "empresa aparenta estar bagun�ada. As divis�es de departamentos e cargos est�o fora de ordem e alguns funcion�rios se queixam de que est�o fazendo " + "\n" +
                                 "fun��es desconexas das que foram de fato contratados para fazer.");
 
-            Thread.sleep(2000);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             System.out.println("O que deseja fazer?");
-
-            resposta01();
+            p1Captitulo01();
+            Thread.sleep(tempoDasFalas);
+            System.out.println(" ");
+            Thread.sleep(tempoDasFalas);
+            System.out.println("Surge a oportunidade de uma parceria com uma empresa maior. Eles desejam dar suporte de forma financeira \n" +
+                                "a produ��o de um software voltado para a organiza��o da rotina. Ajudando a arcar com os gastos de publica��o \n" +
+                                "do aplicativo nas lojas digitais e cuidando de parte do marketing e divulga��o.");
+            Thread.sleep(tempoDasFalas);
+            System.out.println(" ");
+            System.out.println("Deseja fechar essa parceria?");
+            p2Capitulo01();
 
         }catch (InterruptedException e){
             throw new RuntimeException("Erro na execu��o de um sleep.", e);
@@ -785,33 +829,38 @@ public class Main {
     }
 
     /* -------- RESPOSTA -------- */
-    public static void resposta01(){
+    public static void p1Captitulo01(){
         Scanner input = new Scanner(System.in);
         try{
-            Thread.sleep(3500);
+        	mostrarStatus();
+            Thread.sleep(tempoDasFalas);
             System.out.println(" __________________________________");
             System.out.println("|                                  |");
             System.out.println("| a) Analisar a empresa e realizar |");
             System.out.println("|   a divis�o de cargos e fun��es. |");
             System.out.println("|__________________________________|");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             System.out.println(" __________________________________");
             System.out.println("|                                  |");
             System.out.println("| b) Manter a empresa como est�.   |");
             System.out.println("|__________________________________|");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             System.out.println(" __________________________________");
             System.out.println("|                                  |");
             System.out.println("| c) Realizar a divis�o sem nem um |");
             System.out.println("|   tipo de pesquisa ou fundamento.|");
             System.out.println("|__________________________________|");
-            Thread.sleep(2500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             System.out.println("A sua resposta �: ");
-            String resposta01 = input.next();
-            validaResposta01(resposta01);
+            String resposta01 = input.next().toLowerCase();
+            validaP1Capitulo01(resposta01);
+            vidaDinheiro = calcularStatus(vidaDinheiro);
+            vidaDinheiro = validaLimiteVida(vidaDinheiro);
+		    mostrarStatus();
+		    validaGameOver(vidaDinheiro);
 
         }catch (InterruptedException e){
             throw new RuntimeException("Erro na execu��o de um sleep.", e);
@@ -819,33 +868,37 @@ public class Main {
     }
 
     /* -------- VALIDA RESPOSTA 01 -------- */
-    public static void validaResposta01(String resposta01) {
+    public static void validaP1Capitulo01(String resposta01) {
         Scanner input = new Scanner(System.in);
         try{
             switch (resposta01){
                 case "a":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("A divis�o de cargos foi um sucesso, os colaboradores est�o mais felizes, \n" +
                                         "focados e produtivos ap�s a mudan�a. ");
+                    statusVida = 1;
+                    statusDinheiro = 1;
                     break;
 
                 case "b":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("A empresa mant�m o mesmo formato, seus funcion�rios continuam meio confusos e perdidos. \n " +
                                         "A longo prazo isso pode prejudicar os lucros e funcionamento da empresa. ");
                     break;
 
                 case "c":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("A empresa est� pior do que antes, dividir cargos e fun��es sem nenhum tipo de pesquisa \n" +
                                         "foi uma p�ssima ideia. Seus funcion�rios est�o mais perdidos do que antes, e isso afeta diretamente os lucros da empresa.");
+                    statusVida = 2;
+                    statusDinheiro = 2;
                     break;
                 default:
                     System.out.println("Op��o Inv�lida, escolha apenas entre a, b ou c\n >:(");
-                    resposta01();
+                    p1Captitulo01();
             }
         }catch (InterruptedException e){
             throw new RuntimeException("Erroa na execu��o de um sleep.", e);
@@ -853,53 +906,37 @@ public class Main {
     }
 
 
-    public static void capituloTxt02_2(){
-        try{
-            Thread.sleep(1200);
-            System.out.println(" ");
-            Thread.sleep(3500);
-            System.out.println("Surge a oportunidade de uma parceria com uma empresa maior. Eles desejam dar suporte de forma financeira \n" +
-                                "a produ��o de um software voltado para a organiza��o da rotina. Ajudando a arcar com os gastos de publica��o \n" +
-                                "do aplicativo nas lojas digitais e cuidando de parte do marketing e divulga��o.");
-
-            Thread.sleep(2000);
-            System.out.println(" ");
-            System.out.println("Deseja fechar essa parceria?");
-
-            resposta02();
-
-        }catch (InterruptedException e){
-            throw new RuntimeException("Erro na execu��o de um sleep.", e);
-        }
-
-        }
-
     /* -------- RESPOSTA 02 -------- */
-    public static void resposta02(){
+    public static void p2Capitulo01(){
         Scanner input = new Scanner(System.in);
         try{
-            Thread.sleep(3500);
+        	mostrarStatus();
+            Thread.sleep(tempoDasFalas);
             System.out.println(" __________________________________");
             System.out.println("|                                  |");
             System.out.println("| a) Recusar parceria.             |");
             System.out.println("|__________________________________|");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             System.out.println(" __________________________________");
             System.out.println("|                                  |");
             System.out.println("| b) Aceitar parceria.             |");
             System.out.println("|__________________________________|");
-            Thread.sleep(3500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             System.out.println(" __________________________________");
             System.out.println("|                                  |");
             System.out.println("| c) N�o dar resposta � empresa.   |");
             System.out.println("|__________________________________|");
-            Thread.sleep(2500);
+            Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             System.out.println("A sua resposta �: ");
             String resposta02 = input.next();
-            validaResposta02(resposta02);
+            validaP2Capitulo01(resposta02);
+            vidaDinheiro = calcularStatus(vidaDinheiro);
+            vidaDinheiro = validaLimiteVida(vidaDinheiro);
+		    mostrarStatus();
+		    validaGameOver(vidaDinheiro);
 
         }catch (InterruptedException e){
             throw new RuntimeException("Erro na execu��o de um sleep.", e);
@@ -907,31 +944,35 @@ public class Main {
     }
 
     /* -------- VALIDA RESPOSTA 02 -------- */
-    public static void validaResposta02(String resposta02) {
+    public static void validaP2Capitulo01(String resposta02) {
         Scanner input = new Scanner(System.in);
         try{
             switch (resposta02){
                 case "a":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("Voc� recusa a parceria e deseja seguir a ideia do software sem ajuda, os gastos s�o praticamente iguais aos lucros.\n");
                     break;
 
                 case "b":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("A parceria deu certo e gerou lucros para ambos os lados permitindo futuras parcerias");
+                    statusVida = 1;
+                    statusDinheiro = 1;
                     break;
 
                 case "c":
-                    Thread.sleep(2500);
+                    Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     System.out.println("N�o dar resposta a empresa foi uma escolha ruim, seu nome come�a ficar mal falado");
+                    statusVida = 2;
+                    statusDinheiro = 2;
                     break;
 
                 default:
                     System.out.println("Op��o Inv�lida, escolha apenas entre a, b ou c\n >:(");
-                    resposta02();
+                    p2Capitulo01();
             }
         }catch (InterruptedException e){
             throw new RuntimeException("Erroa na execu��o de um sleep.", e);
@@ -945,9 +986,9 @@ public class Main {
      * @author Lucas Boni
      */
     public static void main(String[] args){
-//        menu();
-//        txtIntro();
-//        capitulo01();
-        p1Intro();
+    	//Apare�a
+        menu();
+        txtIntro02();
+        capitulo01();
     }
 }
