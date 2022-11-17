@@ -38,20 +38,20 @@ import java.util.List;
 
 public class Main {
     /* ==================*/
-    /* Vari·veis Globais */
+    /* Vari√°veis Globais */
     /* ==================*/
 
 	/**
-     * VARI¡VEL PARA ARMAZENAR O NOME DO JOGADOR
+     * VARI√ÅVEL PARA ARMAZENAR O NOME DO JOGADOR
      * @Class {@link Main}
      * @author Lucas Boni
      * @author Gustavo Xavier
      */
 	static String nome = "";
     /**
-     * VARI¡VEL PARA ARMAZENAR VIDA E DINHEIRO DO JOGADOR
-     * @Õndice 0 = VIDA
-     * @Õndice 1 = DINHEIRO
+     * VARI√ÅVEL PARA ARMAZENAR VIDA E DINHEIRO DO JOGADOR
+     * @√çndice 0 = VIDA
+     * @√çndice 1 = DINHEIRO
      * @Class {@link Main}
      * @author Lucas Boni
      * @author Gustavo Xavier
@@ -59,7 +59,7 @@ public class Main {
     static int[] vidaDinheiro = {100, 200};
 
     /**
-     * VARI¡VEL PARA ARMAZENAR O TEMPO DAS FALAS
+     * VARI√ÅVEL PARA ARMAZENAR O TEMPO DAS FALAS
      * @Class {@link Main}
      * @author Lucas Boni
      * @author Gustavo Xavier
@@ -67,8 +67,8 @@ public class Main {
     static int tempoDasFalas = 0;
 
     /**
-     * VARI¡VEL USADA PARA VERIFICA«√O DO QUE FAZER COM A VIDA DO JOGADOR.
-     * @Valor 0 = PADR√O
+     * VARI√ÅVEL USADA PARA VERIFICA√á√ÉO DO QUE FAZER COM A VIDA DO JOGADOR.
+     * @Valor 0 = PADR√ÉO
      * @Valor 1 = ACRESCENTAR VIDA
      * @Valor 2 = DIMINUIR VIDA
      * @Class {@link Main}
@@ -77,8 +77,8 @@ public class Main {
      */
     static float statusVida = 0;
     /**
-     * VARI¡VEL USADA PARA VERIFICA«√O DO QUE FAZER COM O DINHEIRO
-     * @Valor 0 = PADR√O
+     * VARI√ÅVEL USADA PARA VERIFICA√á√ÉO DO QUE FAZER COM O DINHEIRO
+     * @Valor 0 = PADR√ÉO
      * @Valor 1 = ACRESCENTAR DINHEIRO
      * @Valor 2 = DIMINUIR DINHEIRO
      * @Class {@link Main}
@@ -88,11 +88,11 @@ public class Main {
     static float statusDinheiro = 0;
 
     /**
-     * M…TODO USADO PARA MOSTRAR O MENU DO JOGO.
-     * @OpÁ„o 1 = NOVO JOGO
-     * @OpÁ„o 2 = CONFIGURA«’ES
-     * @OpÁ„o 3 = CR…DITOS
-     * @OpÁ„o 4 = SAIR
+     * M√âTODO USADO PARA MOSTRAR O MENU DO JOGO.
+     * @Op√ß√£o 1 = NOVO JOGO
+     * @Op√ß√£o 2 = CONFIGURA√á√ïES
+     * @Op√ß√£o 3 = CR√âDITOS
+     * @Op√ß√£o 4 = SAIR
      * @Class {@link Main}
      * @author Lucas Boni.
      */
@@ -117,13 +117,13 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA VALIDAR A OP«√O ESCOLHIDA DO MENU.
-     * @OpÁ„o 1 = NOVO JOGO
-     * @OpÁ„o 2 = CONFIGURA«’ES
-     * @OpÁ„o 3 = CR…DITOS
-     * @OpÁ„o 4 = SAIR
+     * M√âTODO USADO PARA VALIDAR A OP√á√ÉO ESCOLHIDA DO MENU.
+     * @Op√ß√£o 1 = NOVO JOGO
+     * @Op√ß√£o 2 = CONFIGURA√á√ïES
+     * @Op√ß√£o 3 = CR√âDITOS
+     * @Op√ß√£o 4 = SAIR
      * @Class {@link Main}
-     * @OpÁ„o 1
+     * @Op√ß√£o 1
      * @author Lucas Boni.
      */
     public static void validaOpcaoMenu(String opcao){
@@ -157,7 +157,7 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA MOSTRAR O STATUS DO JOGADOR.
+     * M√âTODO USADO PARA MOSTRAR O STATUS DO JOGADOR.
      * @Class {@link Main}
      * @author Lucas Boni
      * @author Gustavo Xavier.
@@ -181,12 +181,12 @@ public class Main {
             }
 
         } catch (InterruptedException e) {
-            throw new RuntimeException("Erro na execuÁ„o de um sleep",e);
+            throw new RuntimeException("Erro na execu√ß√£o de um sleep",e);
         }
     }
 
     /**
-     * M…TODO USADO PARA CALCULAR O STATUS DO JOGADOR.
+     * M√âTODO USADO PARA CALCULAR O STATUS DO JOGADOR.
      * @Class {@link Main}
      * @param status VIDA E DINHEIRO
      * @author Lucas Boni
@@ -224,13 +224,13 @@ public class Main {
             System.out.println("");
             Thread.sleep(tempoDasFalas);
         } catch (InterruptedException e) {
-            throw new RuntimeException("Erro na execuÁ„o de um sleep", e);
+            throw new RuntimeException("Erro na execu√ß√£o de um sleep", e);
         }
         return status;
     }
 
     /**
-     * M…TODO USADO VALIDAR SE A ESTOUROU OU N√O.
+     * M√âTODO USADO VALIDAR SE A ESTOUROU OU N√ÉO.
      * @Class {@link Main}
      * @param status VIDA E DINHEIRO
      * @author Lucas Boni
@@ -248,7 +248,7 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA VALIDAR O GAME OVER.
+     * M√âTODO USADO PARA VALIDAR O GAME OVER.
      * @Class {@link Main}
      * @param status VIDA E DINHEIRO
      * @author Lucas Boni
@@ -257,10 +257,10 @@ public class Main {
     public static void validaGameOver(int[] status){
             try {
                 if (status[0] <= 0){
-                    System.out.println("Sua vida chegou a 0. VocÍ perdeu. Game Over!");
+                    System.out.println("Sua vida chegou a 0. Voc√™ perdeu. Game Over!");
                     System.exit(0);
                 } else if (status[1] <= 0) {
-                    System.out.println("Seu dinheiro chegou a "+status[1]+". VocÍ perdeu.");
+                    System.out.println("Seu dinheiro chegou a "+status[1]+". Voc√™ perdeu.");
                     Thread.sleep(tempoDasFalas);
                     System.out.println("Sua empresa...");
                     Thread.sleep(tempoDasFalas);
@@ -273,10 +273,10 @@ public class Main {
     }
 
     /**
-     * MENU DOS NÕVEIS DE DIFICULDADE
-     * @OpÁ„o 1 = F¡CIL
-     * @OpÁ„o 2 = NORMAL
-     * @OpÁ„o 3 = DIFÕCIL
+     * MENU DOS N√çVEIS DE DIFICULDADE
+     * @Op√ß√£o 1 = F√ÅCIL
+     * @Op√ß√£o 2 = NORMAL
+     * @Op√ß√£o 3 = DIF√çCIL
      * @Class {@link Main}
      * @author Ryan Nascimento
      */
@@ -298,10 +298,10 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA VERIFICAR O NÕVEL DE DIFICULDADE ESCOLHIDO.
-     * @Valor 1 = F¡CIL
+     * M√âTODO USADO PARA VERIFICAR O N√çVEL DE DIFICULDADE ESCOLHIDO.
+     * @Valor 1 = F√ÅCIL
      * @Valor 2 = NORMAL
-     * @Valor 3 = DIFÕCIL
+     * @Valor 3 = DIF√çCIL
      * @Class {@link Main}
      * @param nivel
      * @author Ryan Nascimento
@@ -318,31 +318,31 @@ public class Main {
                 txtIntro01();
                 break;
             default:
-                System.err.print("Por favor, escolha uma das opÁıes corretamente!\n");
+                System.err.print("Por favor, escolha uma das op√ß√µes corretamente!\n");
                 dificuldade();
                 break;
         }
     }
 
     /**
-     * M…TODO USADO PARA VERIFICAR SE QUER INICIAR O JOGO OU N√O.
+     * M√âTODO USADO PARA VERIFICAR SE QUER INICIAR O JOGO OU N√ÉO.
      * @Class {@link Main}
      * @author Lucas Boni
      */
     public static void novoJogo(){
         Scanner ler = new Scanner(System.in);
-        String opcao = "Nesta jornada vocÍ ser· respos·vel por controlar uma empresa herdada. Est· preparado? (S ou N)";
+        String opcao = "Nesta jornada voc√™ ser√° respos√°vel por controlar uma empresa herdada. Est√° preparado? (S ou N)";
         System.out.println(opcao);
         opcao = ler.next();
         validaNovoJogo(opcao.toLowerCase());
     }
 
     /**
-     * M…TODO USADO PARA VALIDAR A RESPOSTA DO NOVO JOGO.
-     * @MÈtodo novoJogo
+     * M√âTODO USADO PARA VALIDAR A RESPOSTA DO NOVO JOGO.
+     * @M√©todo novoJogo
      * @param opcao
      * @Valor s = Sim
-     * @Valor n = N„o
+     * @Valor n = N√£o
      * @Class {@link Main}
      * @author Lucas Boni
      */
@@ -362,7 +362,7 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA SAIR DO JOGO.
+     * M√âTODO USADO PARA SAIR DO JOGO.
      * @Class {@link Main}
      * @author Lucas Boni
      */
@@ -372,7 +372,7 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA IMPRIMIR A INTRO DO JOGO.
+     * M√âTODO USADO PARA IMPRIMIR A INTRO DO JOGO.
      * @Class {@link Main}
      * @author Gustavo Xavier.
      */
@@ -384,7 +384,7 @@ public class Main {
             System.out.println(" |       |");
             System.out.println(" | 05:30!|");
             System.out.println(" |       |");
-            System.out.println(" |___∞___|");
+            System.out.println(" |___¬∞___|");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
@@ -404,51 +404,51 @@ public class Main {
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("VocÍ acorda com o barulho do alarme do seu  "
-                    + "celular, estica o braÁo para deslig·-lo e com os olhos "
+            System.out.println("Voc√™ acorda com o barulho do alarme do seu  "
+                    + "celular, estica o bra√ßo para deslig√°-lo e com os olhos "
                     + "serrilhados de sono tenta ver as horas?");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("S„o exatamente 5:30 da manh„ e chegou a hora de "
+            System.out.println("S√£o exatamente 5:30 da manh√£ e chegou a hora de "
                     + "levantar para trabalhar!");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("Ainda com sono, vocÍ desliga o alarme. Ao tentar "
-                    + "se sentar na cama sente algumas dores e extrema indisposiÁ„o."
-                    + " Seu corpo pesa como se alguÈm \nestivesse te segurando, "
-                    + "sua cabeÁa dÛi e lateja, seus olhos ardem e sua mente ainda"
-                    + " est· confusa. ");
+            System.out.println("Ainda com sono, voc√™ desliga o alarme. Ao tentar "
+                    + "se sentar na cama sente algumas dores e extrema indisposi√ß√£o."
+                    + " Seu corpo pesa como se algu√©m \nestivesse te segurando, "
+                    + "sua cabe√ßa d√≥i e lateja, seus olhos ardem e sua mente ainda"
+                    + " est√° confusa. ");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("Infelizmente n„o È ressaca. O motivo disso foi sua"
+            System.out.println("Infelizmente n√£o √© ressaca. O motivo disso foi sua"
                     + " jornada de trabalho exaustiva?");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("ApÛs quatro minutos de uma dura luta com a sua "
-                    + "cama, sono e indisposiÁ„o vocÍ consegue se levantar e ir "
+            System.out.println("Ap√≥s quatro minutos de uma dura luta com a sua "
+                    + "cama, sono e indisposi√ß√£o voc√™ consegue se levantar e ir "
                     + "ao banheiro.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("VocÍ acende a luz e se olha no espelho, observa "
-                    + "que est· com um semblante cansado e olhos levemente vermelhos"
+            System.out.println("Voc√™ acende a luz e se olha no espelho, observa "
+                    + "que est√° com um semblante cansado e olhos levemente vermelhos"
                     + " com olheiras.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
             System.out.println("Olhando para si mesmo  lembra do filme "
                     + "?eu sou a lenda??, que assistiu no fim de semana passado. "
-                    + "Infelizmente, vocÍ n„o È o Will Smith\ne muito menos um pastor"
-                    + " alem„o, vocÍ se sente como um zumbi. ");
+                    + "Infelizmente, voc√™ n√£o √© o Will Smith\ne muito menos um pastor"
+                    + " alem√£o, voc√™ se sente como um zumbi. ");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("Seu apartamento È apertado, vocÍ vive com seu pai e"
-                    + " seu gato chamado Frederico. Sua m„e deixou a casa apÛs abrir uma empresa. ");
+            System.out.println("Seu apartamento √© apertado, voc√™ vive com seu pai e"
+                    + " seu gato chamado Frederico. Sua m√£e deixou a casa ap√≥s abrir uma empresa. ");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
@@ -469,30 +469,30 @@ public class Main {
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("Desde ent„o vocÍs n„o se falaram, vocÍ n„o tem "
-                    + "mais noticias, n„o sabe se ela est· bem, n„o sabe sequer se "
-                    + "est· viva. \nNem tudo s„o flores, mas nem tudo s„o espinhos "
-                    + "tambÈm?");
+            System.out.println("Desde ent√£o voc√™s n√£o se falaram, voc√™ n√£o tem "
+                    + "mais noticias, n√£o sabe se ela est√° bem, n√£o sabe sequer se "
+                    + "est√° viva. \nNem tudo s√£o flores, mas nem tudo s√£o espinhos "
+                    + "tamb√©m?");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("VocÍ prepara seu cafÈ da manh„ e apÛs comÍ-lo e "
-                    + "volta para o quarto para se arrumar, porÈm a ideia de deitar "
-                    + "e dormir È tentadora.");
+            System.out.println("Voc√™ prepara seu caf√© da manh√£ e ap√≥s com√™-lo e "
+                    + "volta para o quarto para se arrumar, por√©m a ideia de deitar "
+                    + "e dormir √© tentadora.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("Durante o mÍs passado vocÍ teve que cobrir o "
-                    + "hor·rio de outro funcion·rio, pois ele tinha ficado doente. "
-                    + "Na hora de receber o seu sal·rio a empresa falou que o\n"
-                    + "?Sistema de Bater Ponto?? n„o mostrava as horas extras que "
-                    + "vocÍ havia feito, e por isso n„o iam te pagar a mais.");
+            System.out.println("Durante o m√™s passado voc√™ teve que cobrir o "
+                    + "hor√°rio de outro funcion√°rio, pois ele tinha ficado doente. "
+                    + "Na hora de receber o seu sal√°rio a empresa falou que o\n"
+                    + "?Sistema de Bater Ponto?? n√£o mostrava as horas extras que "
+                    + "voc√™ havia feito, e por isso n√£o iam te pagar a mais.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("Ontem esse mesmo funcion·rio foi demitido e por "
-                    + "falta de pessoas vocÍ teve que trabalhar atÈ mais tarde "
-                    + "novamente, e com isso \nvocÍ chegou em casa por volta da 1:30 da  manh„.");
+            System.out.println("Ontem esse mesmo funcion√°rio foi demitido e por "
+                    + "falta de pessoas voc√™ teve que trabalhar at√© mais tarde "
+                    + "novamente, e com isso \nvoc√™ chegou em casa por volta da 1:30 da  manh√£.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
@@ -503,7 +503,7 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA IMPRIMIR O CAPÕTULO 1 DO JOGO.
+     * M√âTODO USADO PARA IMPRIMIR O CAP√çTULO 1 DO JOGO.
      * @Class {@link Main}
      * @author Gustavo Xavier.
      */
@@ -512,26 +512,26 @@ public class Main {
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("Com raiva da empresa e com medo da mesma situaÁ„o "
-                    + "acontecer novamente vocÍ tem as seguintes opÁıes: ");
+            System.out.println("Com raiva da empresa e com medo da mesma situa√ß√£o "
+                    + "acontecer novamente voc√™ tem as seguintes op√ß√µes: ");
             System.out.println(" ");
             p1Intro();
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("VocÍ chega deprimido e decide dormir. No dia seguinte "
+            System.out.println("Voc√™ chega deprimido e decide dormir. No dia seguinte "
                     + "acorda com seu pai te chamando,falando que ?tem um advogado "
                     + "querendo falar com voc???.");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("Ele est· sentado na cozinha explica que vocÍ È herdeiro "
-                    + "direto da empresa da sua m„e, e que ela infelizmente "
+            System.out.println("Ele est√° sentado na cozinha explica que voc√™ √© herdeiro "
+                    + "direto da empresa da sua m√£e, e que ela infelizmente "
                     + "morreu de covid...");
             Thread.sleep(tempoDasFalas);
             System.out.println(" ");
             Thread.sleep(tempoDasFalas);
-            System.out.println("Essa notÌcia te deixa abalado, mas tambÈm te motiva a "
+            System.out.println("Essa not√≠cia te deixa abalado, mas tamb√©m te motiva a "
                     + "conseguir mudar a sua qualidade de vida e a do seu pai, deseja "
                     + "aceitar o desafio de comandar uma empresa ?");
             System.out.println(" ");
@@ -542,7 +542,7 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA IMPRIMIR A PRIMEIRA PERGUNTA DA INTRO DO JOGO.
+     * M√âTODO USADO PARA IMPRIMIR A PRIMEIRA PERGUNTA DA INTRO DO JOGO.
      * @Class {@link Main}
      * @author Gustavo Xavier.
      */
@@ -577,7 +577,7 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA VALIDAR A RESPOSTA DA PRIMEIRA PERGUNTA DA INTRO DO JOGO.
+     * M√âTODO USADO PARA VALIDAR A RESPOSTA DA PRIMEIRA PERGUNTA DA INTRO DO JOGO.
      * @Method: p1Intro
      * @param rP1
      * @Class: {@link Main}
@@ -601,9 +601,9 @@ public class Main {
                     Thread.sleep(tempoDasFalas);
                     System.out.println("\nA maioria das vagas est?o ocupadas, ent?o voc? tem que ir para o estacionamento"
                             + "dos fundos da empresa.\nDirigindo com sono em lugar "
-                            + "escuro vocÍ acaba ralando o carro em uma caÁamba de lixo."
-                            + " O seu supervisor vÍ a cena e avisa para o chefe.\nAo fim "
-                            + "do expediente ele pede para que vocÍ passe no RH.");
+                            + "escuro voc√™ acaba ralando o carro em uma ca√ßamba de lixo."
+                            + " O seu supervisor v√™ a cena e avisa para o chefe.\nAo fim "
+                            + "do expediente ele pede para que voc√™ passe no RH.");
                     Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     Thread.sleep(tempoDasFalas);
@@ -648,9 +648,9 @@ public class Main {
                             + "parece estar muito feliz, ele pergunta o motivo de "
                             + "seu atraso hoje.");
                     Thread.sleep(tempoDasFalas);
-                    System.out.println("\nSendo honesto vocÍ explica sua "
-                            + "situaÁ„o. PorÈm isso n„o ajuda muito, ele pede "
-                            + "para que vocÍ passe no RH.");
+                    System.out.println("\nSendo honesto voc√™ explica sua "
+                            + "situa√ß√£o. Por√©m isso n√£o ajuda muito, ele pede "
+                            + "para que voc√™ passe no RH.");
                     Thread.sleep(tempoDasFalas);
                     System.out.println(" ");
                     Thread.sleep(tempoDasFalas);
@@ -670,7 +670,7 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA IMPRIMIR A SEGUNDA PERGUNTA DA INTRO DO JOGO.
+     * M√âTODO USADO PARA IMPRIMIR A SEGUNDA PERGUNTA DA INTRO DO JOGO.
      * @Class: {@link Main}
      * @author Gustavo Xavier.
      */
@@ -705,7 +705,7 @@ public class Main {
     }
 
     /**
-     * M…TODO USADO PARA VALIDAR A RESPOSTA DA SEGUNDA PERGUNTA DA INTRO DO JOGO.
+     * M√âTODO USADO PARA VALIDAR A RESPOSTA DA SEGUNDA PERGUNTA DA INTRO DO JOGO.
      * @Method: p2Intro
      * @Class: {@link Main}
      * @param rP2
@@ -980,8 +980,8 @@ public class Main {
     }
 
     /**
-     * M…TODO MAIN DO PROJETO. ELE QUE IR¡ RODAR O JOGO.
-     * @param args RECEBE VALORES DA LINHA DE COMANDO NA HORA DE RODAR A APLICA«√O
+     * M√âTODO MAIN DO PROJETO. ELE QUE IR√Å RODAR O JOGO.
+     * @param args RECEBE VALORES DA LINHA DE COMANDO NA HORA DE RODAR A APLICA√á√ÉO
      * @Class {@link Main}
      * @author Lucas Boni
      */
